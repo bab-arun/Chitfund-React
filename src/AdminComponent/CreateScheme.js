@@ -63,6 +63,10 @@ export const CreateScheme = () => {
     }
   };
 
+  const schemeNameHider = () => {
+    setSchemeNameErr(false);
+  };
+
   //scheme amount valid
 
   const schemeAmountHandler = (e) => {
@@ -74,6 +78,10 @@ export const CreateScheme = () => {
     } else {
       setSchemeAmountErr(true);
     }
+  };
+
+  const schemeAmountHider = () => {
+    setSchemeAmountErr(false);
   };
 
   //scheme num of users validation
@@ -89,6 +97,10 @@ export const CreateScheme = () => {
     }
   };
 
+  const schemeUsersHider = () => {
+    setSchemeUsersErr(false);
+  };
+
   // scheme amount validation
   const schemePayHandler = (e) => {
     setPayAmount(e.target.value);
@@ -99,6 +111,10 @@ export const CreateScheme = () => {
     } else {
       setSchemePayErr(true);
     }
+  };
+
+  const schemePayHider = () => {
+    setSchemePayErr(false);
   };
 
   ///////scheme duration handler
@@ -172,7 +188,8 @@ export const CreateScheme = () => {
                 type="text"
                 className="create_scheme_name_input"
                 autoFocus
-                onChange={schemeNameHandler}
+                onBlur={schemeNameHandler}
+                onFocus={schemeNameHider}
                 required
               />
               <br></br>
@@ -186,7 +203,8 @@ export const CreateScheme = () => {
               <input
                 type="text"
                 className=""
-                onChange={schemeAmountHandler}
+                onBlur={schemeAmountHandler}
+                onFocus={schemeAmountHider}
                 required
               />{" "}
               <br></br>
@@ -200,7 +218,8 @@ export const CreateScheme = () => {
               <input
                 type="text"
                 className=""
-                onChange={schemeUsersHandler}
+                onBlur={schemeUsersHandler}
+                onFocus={schemeUsersHider}
                 required
               />{" "}
               <br></br>
@@ -214,7 +233,8 @@ export const CreateScheme = () => {
               <input
                 type="text"
                 className=""
-                onChange={schemePayHandler}
+                onBlur={schemePayHandler}
+                onFocus={schemePayHider}
                 required
               />
               <br></br>
