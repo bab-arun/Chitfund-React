@@ -45,7 +45,8 @@ export const CreateUser = () => {
         console.log(result);
         if (result.data == "User Record Saved Successfully") {
           swal({
-            title: "New User " + userCode + " Saved Successfully!!!",
+            text: userCode,
+            title: " Saved Successfully!!!",
             button: "ok",
           }).then(function () {
             window.location = "http://localhost:3000/createuser";

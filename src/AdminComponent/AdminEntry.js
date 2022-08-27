@@ -27,7 +27,8 @@ export const AdminEntry = () => {
         console.log(result);
         if (result.data == "Admin Payment Done") {
           swal({
-            title: " user " + userId + " Payment Successfully by Admin...!",
+            text: userId,
+            title: " Payment Successfully by Admin...!",
             button: "ok",
           }).then(function () {
             window.location = "http://localhost:3000/adminentry";
