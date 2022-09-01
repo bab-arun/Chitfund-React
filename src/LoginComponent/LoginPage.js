@@ -66,8 +66,8 @@ export const LoginPage = () => {
     e.preventDefault();
     axios
       .post("http://localhost:8081/usercode-password/check", {
-        userCode: userCode,
-        password: password,
+        userCode: e.target[0].value,
+        password: e.target[1].value,
       })
       .then((response) => {
         console.log(response.data);
