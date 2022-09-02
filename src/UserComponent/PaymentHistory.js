@@ -60,7 +60,7 @@ export const PaymentHistory = () => {
         <td>{x.schemeId}</td>
         <td>{x.schemeAmount}</td>
         <td>{x.installmentAmount}</td>
-
+        <td>{x.instalDate}</td>
         <td>{x.paidAmountDate}</td>
       </tr>
     );
@@ -82,6 +82,7 @@ export const PaymentHistory = () => {
                   <th>Scheme Name</th>
                   <th>Scheme Amount</th>
                   <th>Paid Amount</th>
+                  <th>Installment Date</th>
                   <th>Paid Date</th>
                 </tr>
               </thead>
