@@ -78,9 +78,9 @@ export const LoginPage = () => {
         const admin = "admin";
         const user = "user";
 
-        if (validData.role === admin) {
+        if (validData === admin) {
           return navigate("/adminhomepage");
-        } else if (validData.role === user) {
+        } else if (validData === user) {
           return navigate("/userhomepage");
         }
       })
