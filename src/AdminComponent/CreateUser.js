@@ -170,6 +170,25 @@ export const CreateUser = () => {
   // usercode validation
   const userCodeHandler = (e) => {
     setUserCode(e.target.value);
+
+    axios
+      .get("http://localhost:8081/checkDupilcateUserCode", {
+        params: {
+          userCode: e.target.value,
+        },
+      })
+      .then((response) => {
+        if (response.data === "userCode exist") {
+          swal({
+            title: "Exist UserCode",
+            button: "ok",
+            icon: "warning",
+            dangerMode: true,
+          });
+          setUserCode("");
+        }
+      });
+
     const validUserCode = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (validUserCode.test(userCode)) {
