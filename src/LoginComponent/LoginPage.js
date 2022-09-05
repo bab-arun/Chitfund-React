@@ -82,12 +82,7 @@ export const LoginPage = () => {
           return navigate("/adminhomepage");
         } else if (validData === user) {
           return navigate("/userhomepage");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log(error.response.status);
-        if (error.response.status == 500) {
+        } else {
           swal({
             title: "ENTER THE VALID USER CREDENTIALS",
             button: "ok",
@@ -95,6 +90,9 @@ export const LoginPage = () => {
             dangerMode: true,
           });
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
