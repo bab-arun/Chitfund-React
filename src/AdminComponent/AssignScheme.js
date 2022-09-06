@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { AdminNavbar } from "./AdminNavbar";
@@ -35,7 +36,7 @@ export const AssignScheme = () => {
       })
       .then((response) => {
         console.log(response);
-        if (response.data == "User is Assigned for scheme") {
+        if (response.data === "User is Assigned for scheme") {
           swal({
             title: "New Users assigned to " + schemeName + " Successfully!!!",
             button: "ok",

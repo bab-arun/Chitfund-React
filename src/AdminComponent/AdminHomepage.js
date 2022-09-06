@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
@@ -154,7 +155,7 @@ export const AdminHomepage = () => {
         <td>
           <p>
             <a
-              to=""
+              href
               title="Assign scheme page"
               onClick={() => assignLinkPopulate(x)}
               style={{ color: "yellow", textDecoration: "underline" }}

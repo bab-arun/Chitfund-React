@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from "react";
 import "../CssComponent/component.css";
 import { useNavigate } from "react-router-dom";

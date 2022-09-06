@@ -70,7 +70,7 @@ export const AcceptPayment = () => {
       })
       .then((res) => {
         console.log(res.data);
-        if (res.data == "Payment is Accepted") {
+        if (res.data === "Payment is Accepted") {
           swal({
             title: "Payment Accepted Successfully!!!",
             button: "ok",

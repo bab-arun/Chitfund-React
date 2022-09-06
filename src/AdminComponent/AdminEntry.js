@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
 import { AdminNavbar } from "./AdminNavbar";
 import axios from "axios";
@@ -25,7 +26,7 @@ export const AdminEntry = () => {
       })
       .then((result) => {
         console.log(result);
-        if (result.data == "Admin Payment Done") {
+        if (result.data === "Admin Payment Done") {
           swal({
             text: userId,
             title: " Payment Successfully by Admin...!",

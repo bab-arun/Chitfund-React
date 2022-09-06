@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { AdminNavbar } from "./AdminNavbar";
 import { Table } from "react-bootstrap";

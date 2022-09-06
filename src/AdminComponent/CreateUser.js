@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
 import { Table, Modal, Button } from "react-bootstrap";
 import { AdminNavbar } from "./AdminNavbar";

@@ -1,10 +1,13 @@
-import React from "react";
+/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 
 const UpdateUser = () => {
   const [edit, setEdit] = useState(false);
 
   const handClose = () => setEdit(false);
-  const handShow = () => setEdit(true);
+  //const handShow = () => setEdit(true);
   return (
     <>
       <Modal
