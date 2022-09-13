@@ -1,23 +1,15 @@
-/* eslint-disable jsx-a11y/no-autofocus */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useContext } from "react";
-import "../CssComponent/component.css";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
 import swal from "sweetalert";
-import { UserContext } from "../App";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
-  const userContext = useContext(UserContext);
-
-  const [userCodeErr, setUserCodeErr] = useState();
-  const [passwordErr, setPasswordErr] = useState();
-
   const [userCode, setUserCode] = useState();
   const [password, setPassword] = useState();
 
-  console.log({ userCode, password });
-
+  const [userCodeErr, setUserCodeErr] = useState();
+  const [passwordErr, setPasswordErr] = useState();
   // user code validation
   const userCodeHandler = (e) => {
     setUserCode(e.target.value);
@@ -28,8 +20,6 @@ export const LoginPage = () => {
 
     ////
 
-    userContext.dispatch(e.target.value); // reducer
-
     const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (validEmail.test(e.target.value)) {
@@ -37,6 +27,10 @@ export const LoginPage = () => {
     } else {
       setUserCodeErr(true);
     }
+  };
+
+  const userCodeHider = () => {
+    setUserCodeErr(false);
   };
 
   // password validation
@@ -53,38 +47,32 @@ export const LoginPage = () => {
     }
   };
 
-  const userCodeHider = () => {
-    setUserCodeErr(false);
-  };
-
   const passwordHider = () => {
     setPasswordErr(false);
   };
 
-  ////////////////////submit call api validate password
   const [validData, setValidData] = useState();
   const navigate = useNavigate();
   const passwordValidation = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8081/usercode-password/check", {
-        userCode: e.target[0].value,
-        password: e.target[1].value,
+        userCode: userCode,
+        password: password,
       })
       .then((response) => {
         console.log(response.data);
         setValidData(response.data);
 
-        console.log(validData);
-        //console.log(validData.role);
         const admin = "admin";
         const user = "user";
+        const invalidUser = "Invalid Password";
 
         if (validData === admin) {
           return navigate("/adminhomepage");
         } else if (validData === user) {
           return navigate("/userhomepage");
-        } else {
+        } else if (validData === invalidUser) {
           swal({
             title: "ENTER THE VALID USER CREDENTIALS",
             button: "ok",
@@ -98,50 +86,68 @@ export const LoginPage = () => {
       });
   };
 
-  /////////////////////////////////////////////////////////////////
-
   return (
     <>
-      <div className="overall_box">
-        <div className="userform">
-          <form onSubmit={(e) => passwordValidation(e)}>
-            <h1 className="userlogin_header">WELCOME TO CHIT SCHEME</h1>
+      <div
+        style={{
+          marginTop: "154px",
+          marginLeft: "550px",
+        }}
+      >
+        <h1 style={{ marginRight: "900px" }}>Chitfund</h1>
+        <form onSubmit={(e) => passwordValidation(e)}>
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+            style={{ width: "300px" }}
+            onBlur={(e) => userCodeHandler(e)}
+            onFocus={userCodeHider}
+            required
+          />
 
-            <div className="usercredential">
-              <label>Email</label>
-              <br></br>
-              <input
-                type="text"
-                placeholder="Enter Email"
-                className="UserLogin_textbox"
-                required
-                autoFocus
-                onBlur={(e) => userCodeHandler(e)}
-                onFocus={userCodeHider}
-              />
-              {userCodeErr ? (
-                <spa style={{ color: "red" }}>*Invalid UserCode</spa>
-              ) : null}
-              <br></br>
-              <br></br>
-              <label>Password</label> <br></br>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                className="UserLogin_textbox"
-                required
-                onBlur={(e) => passwordHandler(e)}
-                onFocus={passwordHider}
-              />
-              {passwordErr ? (
-                <spa style={{ color: "red" }}>*Invalid Password</spa>
-              ) : null}
-              <br></br>
-              <br></br>
-              <input type="submit" value="Submit" className="Login_submit" />
-            </div>
-          </form>
-        </div>
+          <br></br>
+          {userCodeErr ? (
+            <spa style={{ color: "red" }}>*Invalid UserCode</spa>
+          ) : null}
+          <br></br>
+          <br></br>
+
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            type="password"
+            variant="outlined"
+            style={{ width: "300px" }}
+            onBlur={(e) => passwordHandler(e)}
+            onFocus={passwordHider}
+            required
+          />
+          <br></br>
+
+          {passwordErr ? (
+            <spa style={{ color: "red" }}>*Invalid Password</spa>
+          ) : null}
+
+          <br></br>
+          <br></br>
+
+          <input
+            type="submit"
+            value="Login"
+            style={{
+              marginTop: "2px",
+              marginLeft: "74px",
+              width: "140px",
+              height: "34px",
+              backgroundColor: "#3333ff",
+              borderRadius: "4px",
+              color: "white",
+              fontWeight: "bold",
+              border: "none",
+            }}
+          />
+        </form>
       </div>
     </>
   );
