@@ -65,7 +65,7 @@ export const AssignScheme = () => {
         setUserlist(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [linkSchemeName]);
   //////////////////////////////////////////
   return (
     <>
@@ -84,8 +84,12 @@ export const AssignScheme = () => {
               onChange={selectHandle}
               required
             >
-              {userlist.map((x) => {
-                return <option value={x}>{x}</option>;
+              {userlist.map((x, index) => {
+                return (
+                  <option key={index} value={x}>
+                    {x}
+                  </option>
+                );
               })}
             </select>
             <br></br>

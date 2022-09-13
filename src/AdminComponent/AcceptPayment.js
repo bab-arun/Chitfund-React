@@ -34,10 +34,9 @@ export const AcceptPayment = () => {
 
   /////////////////////////////////////////// iterate accept payment records
 
-  const arr = acceptPaymentList.map((x) => {
+  const arr = acceptPaymentList.map((x, index) => {
     return (
-      <tr>
-        {/* <td>{x.id}</td> */}
+      <tr key={index}>
         <td>{x.userName}</td>
         <td>{x.userId}</td>
         <td>{x.schemeId}</td>

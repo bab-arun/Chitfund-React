@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";

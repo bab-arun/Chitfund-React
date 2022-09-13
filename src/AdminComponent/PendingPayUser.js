@@ -39,9 +39,9 @@ export const PendingPayUser = () => {
   }, []);
 
   /////////////////////////////////////////
-  const arr = monthlyUserPendingPaymentList.map((x) => {
+  const arr = monthlyUserPendingPaymentList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.installmentDate}</td>
         <td>{x.status}</td>
         <td>{x.paidDate}</td>

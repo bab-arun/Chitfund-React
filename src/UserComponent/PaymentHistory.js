@@ -49,13 +49,13 @@ export const PaymentHistory = () => {
         setVal(true);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [schemeName, usercode]);
 
   /////////////////////////////////////////////////////////
 
-  const arr = paymentHistoryList.map((x) => {
+  const arr = paymentHistoryList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.userId}</td>
         <td>{x.schemeId}</td>
         <td>{x.schemeAmount}</td>

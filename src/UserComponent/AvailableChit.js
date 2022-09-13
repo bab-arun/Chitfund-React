@@ -30,9 +30,9 @@ export const AvailableChit = () => {
     $("#show_schemes").DataTable();
   });
 
-  const arr = scheme.map((x) => {
+  const arr = scheme.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.schemeName}</td>
         <td>{x.schemeAmount}</td>
         <td>{x.numberOfUser}</td>

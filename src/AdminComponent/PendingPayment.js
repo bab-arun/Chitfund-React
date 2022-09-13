@@ -31,9 +31,9 @@ export const PendingPayment = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const arr = schemePendingPaymentList.map((x) => {
+  const arr = schemePendingPaymentList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.schemeName}</td>
         <td>{x.startDate}</td>
         <td>{x.endDate}</td>

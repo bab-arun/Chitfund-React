@@ -31,9 +31,9 @@ export const ShowProgress = () => {
   }, []);
 
   ///////////////
-  const arr = schemeTotalProgressList.map((x) => {
+  const arr = schemeTotalProgressList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.schemeName}</td>
         <td>{x.numberOfUser}</td>
         <td>{x.payAmount}</td>

@@ -80,7 +80,7 @@ export const AdminEntry = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [amount, scheme]);
 
   //////////////////////////////////////////////////////////
 
@@ -137,7 +137,7 @@ export const AdminEntry = () => {
                 )}
 
                 {schemeNameList.map((x) => {
-                  return x == schemeName ? (
+                  return x === schemeName ? (
                     <option value={x} selected>
                       {x}
                     </option>
@@ -154,8 +154,12 @@ export const AdminEntry = () => {
                 <option value="" selected>
                   --Select User Code--
                 </option>
-                {userCodeList.map((x) => {
-                  return <option value={x}>{x}</option>;
+                {userCodeList.map((x, index) => {
+                  return (
+                    <option key={index} value={x}>
+                      {x}
+                    </option>
+                  );
                 })}
               </select>{" "}
               <br></br>

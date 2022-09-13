@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Routes, Route } from "react-router-dom";
 import { UserNavbar } from "./UserComponent/UserNavbar";
 import { AdminHomepage } from "./AdminComponent/AdminHomepage";

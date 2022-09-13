@@ -41,7 +41,7 @@ export const AdminHomepage = () => {
   const assignLinkPopulate = (x) => {
     console.log(x.schemeName);
     setLinkSchemeName(x.schemeName);
-    if (x.numberOfUser == x.schemeUserCount) {
+    if (x.numberOfUser === x.schemeUserCount) {
       swal("User Count is Full", "You are unable to add user", "warning");
     } else {
       navigate("/assignscheme");
@@ -85,7 +85,7 @@ export const AdminHomepage = () => {
       })
       .then((result) => {
         console.log(result);
-        if (result.data == "Scheme inserted successfully") {
+        if (result.data === "Scheme inserted successfully") {
           swal({
             title: "Edit Scheme Saved Successfully!!!",
             button: "ok",
@@ -145,9 +145,9 @@ export const AdminHomepage = () => {
     $("#show_schemes").DataTable();
   });
 
-  const arr = scheme.map((x) => {
+  const arr = scheme.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         {/* <td>{x.id}</td> */}
         <td>{x.schemeName}</td>
         <td>{x.schemeAmount}</td>
@@ -279,7 +279,7 @@ export const AdminHomepage = () => {
                 <input
                   type="hidden"
                   className=""
-                  Value={selectedData.id}
+                  value={selectedData.id}
                   required
                 />{" "}
                 <br></br>
@@ -289,7 +289,7 @@ export const AdminHomepage = () => {
                 <input
                   type="text"
                   className=""
-                  Value={selectedData.schemeName}
+                  value={selectedData.schemeName}
                   required
                 />{" "}
                 <br></br>
@@ -299,7 +299,7 @@ export const AdminHomepage = () => {
                 <input
                   type="text"
                   className=""
-                  Value={selectedData.schemeAmount}
+                  value={selectedData.schemeAmount}
                   required
                 />{" "}
                 <br></br>
@@ -309,7 +309,7 @@ export const AdminHomepage = () => {
                 <input
                   type="text"
                   className=""
-                  Value={selectedData.numberOfUser}
+                  value={selectedData.numberOfUser}
                   required
                 />{" "}
                 <br></br>
@@ -321,7 +321,7 @@ export const AdminHomepage = () => {
                 <input
                   type="text"
                   className=""
-                  Value={selectedData.payAmount}
+                  value={selectedData.payAmount}
                   required
                 />{" "}
                 <br></br>
@@ -331,7 +331,7 @@ export const AdminHomepage = () => {
                 <input
                   type="text"
                   className=""
-                  Value={schemeDuration}
+                  value={schemeDuration}
                   onChange={durationHandler}
                   required
                 />{" "}
@@ -343,7 +343,7 @@ export const AdminHomepage = () => {
                   type="date"
                   id="previousDateHider"
                   className="input_start_date"
-                  Value={startDate}
+                  value={startDate}
                   onChange={startDateHandler}
                   required
                 />{" "}
@@ -354,18 +354,13 @@ export const AdminHomepage = () => {
                 <input
                   type="date"
                   className="input_end_date"
-                  Value={endDate}
+                  value={endDate}
                   readOnly
                   required
                 />{" "}
                 <br></br>
                 <br></br>
-                <input
-                  type="submit"
-                  value="Submit"
-                  variant="primary"
-                  className="edit_submit"
-                />
+                <input type="submit" value="Submit" className="edit_submit" />
               </form>
             </Modal.Body>
 

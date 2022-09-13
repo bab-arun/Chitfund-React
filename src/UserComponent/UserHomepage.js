@@ -38,11 +38,11 @@ export const UserHomepage = () => {
         setVal(true);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [usercode]);
 
-  const arr = scheme.map((x) => {
+  const arr = scheme.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         {/* <td>{x.id}</td> */}
         <td style={{ textAlign: "center" }}>{x.schemeName}</td>
         <td style={{ textAlign: "center" }}>{x.schemeAmount}</td>

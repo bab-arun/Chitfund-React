@@ -46,13 +46,13 @@ export const UpdatePayment = () => {
         setVal(true);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [usercode, schemeName]);
 
   //////////////////////////////iterate table////////
 
-  const arr = installmentList.map((x) => {
+  const arr = installmentList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.userId}</td>
         <td>{x.schemeId}</td>
         <td>{x.schemeAmount}</td>
@@ -84,7 +84,7 @@ export const UpdatePayment = () => {
       })
       .then((res) => {
         console.log(res.data);
-        if (res.data == "User Payment is Done") {
+        if (res.data === "User Payment is Done") {
           swal({
             title: "Payment Done Successfully!!!",
             button: "ok",

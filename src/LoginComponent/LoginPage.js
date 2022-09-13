@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import swal from "sweetalert";

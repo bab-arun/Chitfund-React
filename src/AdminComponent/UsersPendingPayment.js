@@ -40,9 +40,9 @@ export const UsersPendingPayment = () => {
   }, []);
 
   /////////////////////////////////////////
-  const arr = schemeUserPendingPaymentList.map((x) => {
+  const arr = schemeUserPendingPaymentList.map((x, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{x.userCode}</td>
         <td>
           {" "}

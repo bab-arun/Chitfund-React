@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
@@ -45,7 +46,7 @@ export const CreateUser = () => {
       })
       .then((result) => {
         console.log(result);
-        if (result.data == "User Record Saved Successfully") {
+        if (result.data === "User Record Saved Successfully") {
           swal({
             text: userCode,
             title: " Saved Successfully!!!",
@@ -95,7 +96,7 @@ export const CreateUser = () => {
       })
       .then((result) => {
         console.log(result);
-        if (result.data == "User Record Saved Successfully") {
+        if (result.data === "User Record Saved Successfully") {
           swal({
             title: "Edit User Saved Successfully!!!",
             button: "ok",
@@ -120,7 +121,7 @@ export const CreateUser = () => {
       .get(`http://localhost:8081/user-details/delete/ ${id}`)
       .then((res) => {
         console.log(res);
-        if (res.data == "User record deleted") {
+        if (res.data === "User record deleted") {
           swal({
             title: " User Deleted Successfully!!!",
             button: "ok",
@@ -567,12 +568,7 @@ export const CreateUser = () => {
               />{" "}
               <br></br>
               <br></br>
-              <input
-                type="submit"
-                value="Submit"
-                variant="primary"
-                className="edit_submit"
-              />
+              <input type="submit" value="Submit" className="edit_submit" />
             </form>
           </Modal.Body>
 
